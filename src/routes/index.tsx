@@ -938,16 +938,16 @@ function ProductProof() {
               <img
                 src={athleteBar}
                 alt="Athlete mid pull-up in a training rig, back and shoulders engaged."
-                className="h-full w-full object-cover grayscale contrast-110 opacity-75"
+                className="h-full w-full object-cover grayscale contrast-110 opacity-45 mix-blend-luminosity"
                 loading="lazy"
                 style={{
                   WebkitMaskImage:
-                    "radial-gradient(ellipse at 50% 45%, black 45%, transparent 95%)",
+                    "radial-gradient(ellipse at 50% 45%, black 25%, rgba(0, 0, 0, 0.86) 45%, rgba(0, 0, 0, 0.42) 68%, transparent 92%)",
                   maskImage:
-                    "radial-gradient(ellipse at 50% 45%, black 45%, transparent 95%)",
+                    "radial-gradient(ellipse at 50% 45%, black 25%, rgba(0, 0, 0, 0.86) 45%, rgba(0, 0, 0, 0.42) 68%, transparent 92%)",
                 }}
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-carbon via-carbon/40 to-carbon/20" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-carbon via-carbon/55 to-carbon/35" />
 
               {/* editorial labels */}
               <div className="absolute left-4 top-4 flex items-center gap-2">
