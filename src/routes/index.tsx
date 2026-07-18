@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import editorialFigure from "../assets/editorial-figure.jpg.asset.json";
-import athleteBar from "../assets/athlete-bar.jpg.asset.json";
+import editorialFigure from "@/assets/editorial-figure.jpg";
+import athleteBar from "@/assets/athlete-bar.jpg";
 
 const APP_URL = "https://peprep-app--dw8csowbqr.expo.app/history";
 
