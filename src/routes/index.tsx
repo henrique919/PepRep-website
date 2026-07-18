@@ -936,7 +936,7 @@ function ProductProof() {
           <div className="relative lg:col-span-5">
             <div className="relative aspect-[3/4] w-full overflow-hidden">
               <img
-                src={athleteBar.url}
+                src={athleteBar}
                 alt="Athlete mid pull-up in a training rig, back and shoulders engaged."
                 className="h-full w-full object-cover grayscale contrast-110 opacity-75"
                 loading="lazy"
@@ -1538,7 +1538,7 @@ function FinalCTA() {
         <div className="relative lg:col-span-5">
           <div className="relative aspect-[3/4] w-full overflow-hidden">
             <img
-              src={editorialFigure.url}
+              src={editorialFigure}
               alt="Figure in low light, arms raised in a controlled stretch."
               className="h-full w-full object-cover grayscale opacity-70"
               loading="lazy"
