@@ -808,7 +808,7 @@ const LOOP = [
   {
     n: "04",
     title: "Log",
-    body: "Record completed, skipped, missed, or edited events.",
+    body: "Track due, logged, skipped, missed, and voided events without rewriting history.",
     art: <LoopLog />,
   },
   {
@@ -961,10 +961,12 @@ function LoopSchedule() {
 
 function LoopLog() {
   const items = [
-    { label: "Completed", tone: "carbon" },
+    { label: "Due", tone: "volt" },
+    { label: "Logged", tone: "carbon" },
     { label: "Skipped", tone: "muted" },
     { label: "Missed", tone: "danger" },
-    { label: "Edited", tone: "volt" },
+    { label: "Voided", tone: "danger" },
+    { label: "Archived plan", tone: "muted" },
   ];
   return (
     <div className="space-y-2">

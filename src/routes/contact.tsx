@@ -24,7 +24,7 @@ function ContactPage() {
       eyebrow="Support"
       title="Help without the runaround."
       summary="Find the relevant control in the app, report a product problem, or review PepRep’s privacy and safety boundary."
-      updated="19 July 2026"
+      updated="20 July 2026"
     >
       <h2>Common tasks</h2>
       <ul>
@@ -43,11 +43,12 @@ function ContactPage() {
         </li>
       </ul>
 
-      <h2>Report a technical problem</h2>
+      <h2>Public technical bug tracker</h2>
       <p>
-        PepRep&apos;s public issue tracker is the current support channel.
+        Use the public issue tracker only for non-sensitive product defects.
         Include the app version, device model, operating-system version, what
-        you expected, and what happened.
+        you expected, and what happened. Maintainers review reports when
+        available; this is not a private, emergency, or medical support service.
       </p>
       <p>
         <a
@@ -56,7 +57,7 @@ function ContactPage() {
           target="_blank"
           rel="noreferrer"
         >
-          Open a support request ↗
+          Open a public technical bug report ↗
         </a>
       </p>
       <div className="legal-warning" role="note">
