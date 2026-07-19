@@ -38,8 +38,12 @@
 }
 
 @layer base {
-  * { border-color: var(--border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background: var(--bg);
     color: var(--fg);
@@ -47,13 +51,85 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: var(--volt); color: var(--carbon); }
-  :focus-visible { outline: 2px solid var(--volt); outline-offset: 2px; border-radius: 4px; }
-  .font-mono, .tabular { font-variant-numeric: tabular-nums; }
+  ::selection {
+    background: var(--volt);
+    color: var(--carbon);
+  }
+  :focus-visible {
+    outline: 3px solid var(--carbon);
+    outline-offset: 3px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 5px var(--volt);
+  }
+  .font-mono,
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .legal-copy {
+    color: var(--fg);
+    font-size: 16px;
+    line-height: 1.72;
+  }
+  .legal-copy h2 {
+    margin-top: 2.6rem;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-d);
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+  .legal-copy h2:first-child {
+    margin-top: 0;
+  }
+  .legal-copy p {
+    margin-top: 0.75rem;
+    color: #4e4d54;
+  }
+  .legal-copy ul {
+    margin-top: 0.85rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+    color: #4e4d54;
+  }
+  .legal-copy li + li {
+    margin-top: 0.55rem;
+  }
+  .legal-copy a {
+    color: var(--carbon);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .legal-action {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    border-radius: 12px;
+    background: var(--carbon);
+    padding: 0.75rem 1.1rem;
+    color: var(--volt) !important;
+    text-decoration: none !important;
+  }
+  .legal-warning {
+    margin-top: 1rem;
+    border: 1px solid #d4b45a;
+    border-radius: 12px;
+    background: #fdf0d0;
+    padding: 1rem;
+    color: #5c4008;
+    font-weight: 600;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
   }

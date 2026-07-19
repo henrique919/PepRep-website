@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import editorialFigure from "@/assets/editorial-figure.jpg";
-import athleteBar from "@/assets/athlete-bar.jpg";
+import editorialFigure from "@/assets/editorial-figure.webp";
+import athleteBar from "@/assets/athlete-bar.webp";
 
-const APP_URL = "https://peprep-app--kln5kt8zem.expo.app/";
+const APP_URL = "https://peprep-app.expo.app/";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -16,12 +16,18 @@ export const Route = createFileRoute("/")({
           "Turn vial, water and dose inputs into a clear syringe draw, then track vials, schedules and history. Measurement only—never dose recommendations.",
       },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://peprep.co/" }],
   }),
 });
 
 /* ─────────────────────────────  LOGO  ───────────────────────────── */
-function BoldTally({ size = 32, dark = false }: { size?: number; dark?: boolean }) {
+function BoldTally({
+  size = 32,
+  dark = false,
+}: {
+  size?: number;
+  dark?: boolean;
+}) {
   const bar = dark ? "#faf9f5" : "#16161a";
   return (
     <svg
@@ -36,12 +42,23 @@ function BoldTally({ size = 32, dark = false }: { size?: number; dark?: boolean 
       <rect x="10" y="28" width="52" height="9" rx="4.5" fill={bar} />
       <rect x="10" y="44" width="52" height="9" rx="4.5" fill={bar} />
       <rect x="10" y="60" width="28" height="9" rx="4.5" fill={bar} />
-      <path d="M46 54l14 18" stroke="#e8ff47" strokeWidth="7" strokeLinecap="round" />
+      <path
+        d="M46 54l14 18"
+        stroke="#e8ff47"
+        strokeWidth="7"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
 
-function Wordmark({ dark = false, size = 22 }: { dark?: boolean; size?: number }) {
+function Wordmark({
+  dark = false,
+  size = 22,
+}: {
+  dark?: boolean;
+  size?: number;
+}) {
   return (
     <span
       style={{
@@ -70,7 +87,11 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-bg/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 sm:px-8">
-        <a href="/" className="flex items-center gap-2.5" aria-label="PepRep home">
+        <a
+          href="/"
+          className="flex items-center gap-2.5"
+          aria-label="PepRep home"
+        >
           <BoldTally size={30} />
           <Wordmark size={20} />
         </a>
@@ -101,15 +122,32 @@ function Nav() {
             onClick={() => setOpen((v) => !v)}
             className="grid h-10 w-10 place-items-center rounded-lg border border-border md:hidden"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {open ? <path d="M6 6l12 12M6 18L18 6" /> : <><path d="M4 7h16" /><path d="M4 17h16" /></>}
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              {open ? (
+                <path d="M6 6l12 12M6 18L18 6" />
+              ) : (
+                <>
+                  <path d="M4 7h16" />
+                  <path d="M4 17h16" />
+                </>
+              )}
             </svg>
           </button>
         </div>
       </div>
       {open && (
         <div className="border-t border-border bg-surface md:hidden">
-          <nav className="mx-auto flex max-w-[1440px] flex-col gap-1 px-5 py-4" aria-label="Mobile">
+          <nav
+            className="mx-auto flex max-w-[1440px] flex-col gap-1 px-5 py-4"
+            aria-label="Mobile"
+          >
             {links.map((l) => (
               <a
                 key={l.href}
@@ -137,7 +175,13 @@ function Nav() {
 
 /* ─────────────────────────  HERO SYRINGE  ─────────────────────────
    Reconstructs the "Exact Draw" card from the calculator screen.    */
-function ExactDrawCard({ units = 10, mL = "0.10" }: { units?: number; mL?: string }) {
+function ExactDrawCard({
+  units = 10,
+  mL = "0.10",
+}: {
+  units?: number;
+  mL?: string;
+}) {
   // pct of 100u scale
   const pct = Math.min(100, Math.max(0, (units / 100) * 100));
   return (
@@ -187,18 +231,68 @@ function Syringe({ pct, label }: { pct: number; label: string }) {
         aria-label={`Syringe filled to ${label}`}
       >
         {/* needle */}
-        <line x1="4" y1="115" x2="70" y2="115" stroke="#8c8c94" strokeWidth="3" />
+        <line
+          x1="4"
+          y1="115"
+          x2="70"
+          y2="115"
+          stroke="#8c8c94"
+          strokeWidth="3"
+        />
         <path d="M70 100 L94 100 L94 130 L70 130 Z" fill="#3a3a42" />
         {/* barrel */}
-        <rect x={barrelX} y="86" width={barrelW} height="58" rx="4" fill="#111114" stroke="#3a3a42" strokeWidth="1.5" />
+        <rect
+          x={barrelX}
+          y="86"
+          width={barrelW}
+          height="58"
+          rx="4"
+          fill="#111114"
+          stroke="#3a3a42"
+          strokeWidth="1.5"
+        />
         {/* fluid */}
-        <rect x={barrelX} y="86" width={fillW} height="58" fill="#e8ff47" opacity="0.9" />
-        <rect x={barrelX} y="86" width={fillW} height="58" fill="url(#fluidShade)" />
+        <rect
+          x={barrelX}
+          y="86"
+          width={fillW}
+          height="58"
+          fill="#e8ff47"
+          opacity="0.9"
+        />
+        <rect
+          x={barrelX}
+          y="86"
+          width={fillW}
+          height="58"
+          fill="url(#fluidShade)"
+        />
         {/* plunger seal */}
-        <rect x={markerX - 6} y="80" width="12" height="70" rx="2" fill="#f7fff0" />
+        <rect
+          x={markerX - 6}
+          y="80"
+          width="12"
+          height="70"
+          rx="2"
+          fill="#f7fff0"
+        />
         {/* barrel top+bottom accent */}
-        <line x1={barrelX} y1="86" x2={barrelX + barrelW} y2="86" stroke="#4a4a52" strokeWidth="1" />
-        <line x1={barrelX} y1="144" x2={barrelX + barrelW} y2="144" stroke="#4a4a52" strokeWidth="1" />
+        <line
+          x1={barrelX}
+          y1="86"
+          x2={barrelX + barrelW}
+          y2="86"
+          stroke="#4a4a52"
+          strokeWidth="1"
+        />
+        <line
+          x1={barrelX}
+          y1="144"
+          x2={barrelX + barrelW}
+          y2="144"
+          stroke="#4a4a52"
+          strokeWidth="1"
+        />
         {/* ticks (major every 10u => 47px, minor every 2u) */}
         {Array.from({ length: 51 }).map((_, i) => {
           const x = barrelX + (barrelW * i) / 50;
@@ -216,9 +310,28 @@ function Syringe({ pct, label }: { pct: number; label: string }) {
           );
         })}
         {/* flange + plunger stem */}
-        <path d="M560 74 L582 74 L582 156 L560 156 Z" fill="#2a2a30" stroke="#4a4a52" />
-        <rect x="582" y="105" width="70" height="20" fill="#2a2a30" stroke="#4a4a52" />
-        <rect x="652" y="90" width="14" height="50" rx="2" fill="#2a2a30" stroke="#4a4a52" />
+        <path
+          d="M560 74 L582 74 L582 156 L560 156 Z"
+          fill="#2a2a30"
+          stroke="#4a4a52"
+        />
+        <rect
+          x="582"
+          y="105"
+          width="70"
+          height="20"
+          fill="#2a2a30"
+          stroke="#4a4a52"
+        />
+        <rect
+          x="652"
+          y="90"
+          width="14"
+          height="50"
+          rx="2"
+          fill="#2a2a30"
+          stroke="#4a4a52"
+        />
         {/* pointer line + label */}
         <line
           x1={markerX}
@@ -228,7 +341,10 @@ function Syringe({ pct, label }: { pct: number; label: string }) {
           stroke="#e8ff47"
           strokeWidth="2"
         />
-        <path d={`M${markerX - 6} 60 L${markerX + 6} 60 L${markerX} 70 Z`} fill="#e8ff47" />
+        <path
+          d={`M${markerX - 6} 60 L${markerX + 6} 60 L${markerX} 70 Z`}
+          fill="#e8ff47"
+        />
         <text
           x={markerX + 6}
           y="52"
@@ -283,8 +399,19 @@ function HeroCalcPanel() {
         </div>
       </div>
       <div className="mt-4 space-y-4">
-        <Field label="Peptide in vial" hint="total content" value="5" unit="mg" />
-        <Field label="Bacteriostatic water" hint="mL only" value="2" unit="mL" locked />
+        <Field
+          label="Peptide in vial"
+          hint="total content"
+          value="5"
+          unit="mg"
+        />
+        <Field
+          label="Bacteriostatic water"
+          hint="mL only"
+          value="2"
+          unit="mL"
+          locked
+        />
         <Field label="Desired dose" hint="your entry" value="250" unit="mcg" />
       </div>
     </div>
@@ -428,7 +555,13 @@ function PhoneField({
   );
 }
 
-function PhoneDrawCard({ units = 10, mL = "0.10" }: { units?: number; mL?: string }) {
+function PhoneDrawCard({
+  units = 10,
+  mL = "0.10",
+}: {
+  units?: number;
+  mL?: string;
+}) {
   const pct = Math.min(100, Math.max(0, units));
   return (
     <div className="rounded-2xl border border-white/10 bg-[#1c1c20] p-4">
@@ -462,7 +595,6 @@ function PhoneDrawCard({ units = 10, mL = "0.10" }: { units?: number; mL?: strin
   );
 }
 
-
 /* ─────────────────────────────  HERO  ───────────────────────────── */
 function Hero() {
   return (
@@ -495,8 +627,9 @@ function Hero() {
             <span>accounted for.</span>
           </h1>
           <p className="mt-7 max-w-[46ch] text-[16px] leading-[1.55] text-white/70 sm:text-[17px]">
-            Enter what is on your vial, how much water you added, and your intended dose.
-            PepRep calculates the exact draw in syringe units and mL—then keeps the record.
+            Enter your vial, water, dose, and syringe. PepRep shows the exact
+            U-100 draw in units and mL, explains every step, and keeps an
+            auditable record on your device.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <a
@@ -505,7 +638,7 @@ function Hero() {
               rel="noreferrer"
               className="inline-flex h-12 items-center rounded-xl bg-volt px-6 text-[14px] font-semibold text-carbon transition-transform hover:scale-[0.98]"
             >
-              Open PepRep
+              Open the free web app
               <span className="ml-2">→</span>
             </a>
             <a
@@ -515,11 +648,18 @@ function Hero() {
               See how it works ↓
             </a>
           </div>
-          <p
-            className="mt-6 max-w-[50ch] text-[12px] leading-[1.5] text-white/60"
+          <div
+            className="mt-6 flex max-w-[62ch] flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.12em] text-white/60"
             style={{ fontFamily: "var(--font-m)" }}
           >
-            Measurement and tracking from your inputs. Never a dose recommendation.
+            <span>Free to use</span>
+            <span>No account required</span>
+            <span>Local-first</span>
+            <span>No dose recommendations</span>
+          </div>
+          <p className="mt-4 max-w-[54ch] text-[12px] leading-[1.55] text-white/45">
+            Browser access is available now. Native iPhone and Android releases
+            are being prepared for store review.
           </p>
         </div>
 
@@ -568,8 +708,8 @@ function ProofStrip() {
               made visible.
             </h2>
             <p className="mt-6 max-w-[42ch] text-[15px] leading-[1.6] text-muted">
-              PepRep keeps mg, mcg, mL and syringe units visibly separate, so the result
-              can be checked instead of guessed.
+              PepRep keeps mg, mcg, mL and syringe units visibly separate, so
+              the result can be checked instead of guessed.
             </p>
             <button
               type="button"
@@ -578,7 +718,11 @@ function ProofStrip() {
               className="mt-6 inline-flex items-center gap-2 border-b border-carbon/30 pb-1 text-[13px] font-semibold text-carbon hover:border-carbon"
             >
               {open ? "Hide the math" : "Show the math"}
-              <span className={`transition-transform ${open ? "rotate-180" : ""}`}>↓</span>
+              <span
+                className={`transition-transform ${open ? "rotate-180" : ""}`}
+              >
+                ↓
+              </span>
             </button>
             {open && (
               <div
@@ -586,16 +730,16 @@ function ProofStrip() {
                 style={{ fontFamily: "var(--font-m)" }}
               >
                 <div>
-                  <span className="text-muted">Concentration:</span> 5 mg ÷ 2 mL ={" "}
-                  <span className="font-semibold">2.5 mg/mL</span>
+                  <span className="text-muted">Concentration:</span> 5 mg ÷ 2 mL
+                  = <span className="font-semibold">2.5 mg/mL</span>
                 </div>
                 <div>
-                  <span className="text-muted">Dose volume:</span> 0.25 mg ÷ 2.5 mg/mL ={" "}
-                  <span className="font-semibold">0.10 mL</span>
+                  <span className="text-muted">Dose volume:</span> 0.25 mg ÷ 2.5
+                  mg/mL = <span className="font-semibold">0.10 mL</span>
                 </div>
                 <div>
-                  <span className="text-muted">U-100 draw:</span> 0.10 mL × 100 ={" "}
-                  <span className="font-semibold text-carbon">10 units</span>
+                  <span className="text-muted">U-100 draw:</span> 0.10 mL × 100
+                  = <span className="font-semibold text-carbon">10 units</span>
                 </div>
               </div>
             )}
@@ -741,7 +885,9 @@ function LoopCalculate() {
       <MiniRow label="Water" value="2 mL" />
       <MiniRow label="Dose" value="250 mcg" />
       <div className="mt-2 rounded-lg bg-carbon px-3 py-2.5 text-[#faf9f5]">
-        <div className="text-[9px] uppercase tracking-widest text-white/50">Draw</div>
+        <div className="text-[9px] uppercase tracking-widest text-white/50">
+          Draw
+        </div>
         <div
           className="text-[18px] font-bold tabular-nums"
           style={{ fontFamily: "var(--font-m)" }}
@@ -759,7 +905,10 @@ function LoopVial() {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-[13px] font-semibold">Retatrutide</div>
-          <div className="text-[11px] text-muted" style={{ fontFamily: "var(--font-m)" }}>
+          <div
+            className="text-[11px] text-muted"
+            style={{ fontFamily: "var(--font-m)" }}
+          >
             5 mg · 2 mL
           </div>
         </div>
@@ -884,7 +1033,9 @@ function LoopHistory() {
 function MiniRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between border-b border-border pb-2">
-      <span className="text-[11px] uppercase tracking-widest text-muted">{label}</span>
+      <span className="text-[11px] uppercase tracking-widest text-muted">
+        {label}
+      </span>
       <span
         className="text-[13px] font-semibold tabular-nums"
         style={{ fontFamily: "var(--font-m)" }}
@@ -899,8 +1050,24 @@ function VialGraphic({ pct }: { pct: number }) {
   return (
     <svg width="26" height="42" viewBox="0 0 26 42" aria-hidden>
       <rect x="7" y="1" width="12" height="4" rx="1" fill="#6b6a72" />
-      <rect x="4" y="6" width="18" height="34" rx="3" fill="none" stroke="#16161a" strokeWidth="1.5" />
-      <rect x="6" y={40 - (34 * pct) / 100} width="14" height={(34 * pct) / 100} fill="#e8ff47" opacity="0.6" />
+      <rect
+        x="4"
+        y="6"
+        width="18"
+        height="34"
+        rx="3"
+        fill="none"
+        stroke="#16161a"
+        strokeWidth="1.5"
+      />
+      <rect
+        x="6"
+        y={40 - (34 * pct) / 100}
+        width="14"
+        height={(34 * pct) / 100}
+        fill="#e8ff47"
+        opacity="0.6"
+      />
     </svg>
   );
 }
@@ -926,8 +1093,9 @@ function ProductProof() {
             </h2>
           </div>
           <p className="lg:col-span-5 lg:mt-auto max-w-[46ch] text-[15px] leading-[1.6] text-white/60">
-            PepRep stays focused on the work: calculate clearly, keep vial records, follow
-            the schedule you created, and maintain an honest history.
+            PepRep stays focused on the work: calculate clearly, keep vial
+            records, follow the schedule you created, and maintain an honest
+            history.
           </p>
         </div>
 
@@ -939,6 +1107,7 @@ function ProductProof() {
                 src={athleteBar}
                 alt="Athlete mid pull-up in a training rig, back and shoulders engaged."
                 className="h-full w-full object-cover grayscale contrast-110 opacity-45 mix-blend-luminosity"
+                decoding="async"
                 loading="lazy"
                 style={{
                   WebkitMaskImage:
@@ -1001,9 +1170,6 @@ function ProductProof() {
                 {/* A · Exact draw */}
                 <PhoneDrawCard units={14} mL="0.14" />
 
-
-
-
                 {/* C · Today schedule (compact) */}
                 <div className="rounded-2xl border border-white/10 bg-[#1c1c20] p-4">
                   <div
@@ -1015,11 +1181,29 @@ function ProductProof() {
                   </div>
                   <ul className="space-y-2.5">
                     {[
-                      { t: "07:30", n: "Retatrutide", d: "250 mcg · 10 u", s: "done" },
-                      { t: "12:00", n: "B-12", d: "1000 mcg · 20 u", s: "next" },
-                      { t: "20:00", n: "GHK-Cu", d: "2 mg · 20 u", s: "queued" },
+                      {
+                        t: "07:30",
+                        n: "Retatrutide",
+                        d: "250 mcg · 10 u",
+                        s: "done",
+                      },
+                      {
+                        t: "12:00",
+                        n: "B-12",
+                        d: "1000 mcg · 20 u",
+                        s: "next",
+                      },
+                      {
+                        t: "20:00",
+                        n: "GHK-Cu",
+                        d: "2 mg · 20 u",
+                        s: "queued",
+                      },
                     ].map((i) => (
-                      <li key={i.n} className="flex items-center gap-2.5 border-b border-white/5 pb-2 last:border-b-0 last:pb-0">
+                      <li
+                        key={i.n}
+                        className="flex items-center gap-2.5 border-b border-white/5 pb-2 last:border-b-0 last:pb-0"
+                      >
                         <span
                           className="w-10 text-[10px] tabular-nums text-white/50"
                           style={{ fontFamily: "var(--font-m)" }}
@@ -1027,7 +1211,9 @@ function ProductProof() {
                           {i.t}
                         </span>
                         <div className="min-w-0 flex-1">
-                          <div className="text-[11px] font-medium text-white">{i.n}</div>
+                          <div className="text-[11px] font-medium text-white">
+                            {i.n}
+                          </div>
                           <div
                             className="text-[9px] text-white/60 tabular-nums"
                             style={{ fontFamily: "var(--font-m)" }}
@@ -1045,7 +1231,11 @@ function ProductProof() {
                           }`}
                           style={{ fontFamily: "var(--font-m)" }}
                         >
-                          {i.s === "done" ? "Logged" : i.s === "next" ? "Next" : "Queued"}
+                          {i.s === "done"
+                            ? "Logged"
+                            : i.s === "next"
+                              ? "Next"
+                              : "Queued"}
                         </span>
                       </li>
                     ))}
@@ -1175,7 +1365,12 @@ function VialGraphicDark({ pct }: { pct: number }) {
 
 function TodayList() {
   const items = [
-    { time: "07:30", name: "Retatrutide", dose: "250 mcg · 10 u", state: "done" },
+    {
+      time: "07:30",
+      name: "Retatrutide",
+      dose: "250 mcg · 10 u",
+      state: "done",
+    },
     { time: "12:00", name: "B-12", dose: "1000 mcg · 20 u", state: "next" },
     { time: "20:00", name: "GHK-Cu", dose: "2 mg · 20 u", state: "queued" },
     { time: "—", name: "Semaglutide", dose: "0.5 mg · 25 u", state: "skipped" },
@@ -1190,7 +1385,10 @@ function TodayList() {
       </div>
       <ul className="space-y-3">
         {items.map((i) => (
-          <li key={i.name} className="flex items-center gap-3 border-b border-white/5 pb-3 last:border-b-0">
+          <li
+            key={i.name}
+            className="flex items-center gap-3 border-b border-white/5 pb-3 last:border-b-0"
+          >
             <span
               className="w-14 text-[12px] tabular-nums text-white/50"
               style={{ fontFamily: "var(--font-m)" }}
@@ -1254,7 +1452,12 @@ function SiteRotation() {
         <span>Last 14 days</span>
       </div>
       <div className="flex items-center gap-6">
-        <svg viewBox="0 0 100 180" className="h-56 w-auto" role="img" aria-label="Injection site rotation map">
+        <svg
+          viewBox="0 0 100 180"
+          className="h-56 w-auto"
+          role="img"
+          aria-label="Injection site rotation map"
+        >
           {/* torso outline */}
           <path
             d="M50 8 c-9 0 -14 6 -14 12 c0 4 -2 6 -6 8 c-8 3 -12 10 -12 20 v40 c0 6 2 10 5 14 v50 c0 6 4 10 10 10 h34 c6 0 10 -4 10 -10 v-50 c3 -4 5 -8 5 -14 v-40 c0 -10 -4 -17 -12 -20 c-4 -2 -6 -4 -6 -8 c0 -6 -5 -12 -14 -12 z"
@@ -1264,7 +1467,15 @@ function SiteRotation() {
             strokeWidth="1"
           />
           {/* midline */}
-          <line x1="50" y1="30" x2="50" y2="160" stroke="#faf9f5" strokeOpacity="0.1" strokeDasharray="2 3" />
+          <line
+            x1="50"
+            y1="30"
+            x2="50"
+            y2="160"
+            stroke="#faf9f5"
+            strokeOpacity="0.1"
+            strokeDasharray="2 3"
+          />
           {sites.map((s, i) => (
             <g key={i}>
               <circle
@@ -1383,10 +1594,10 @@ function Safety() {
               Important
             </div>
             <p className="max-w-[80ch] text-[15px] leading-[1.6] text-fg">
-              PepRep is a measurement and record-keeping tool. It does not provide medical
-              advice, prescribe peptides, or recommend doses. Users should confirm their
-              inputs and follow guidance from an appropriately qualified healthcare
-              professional.
+              PepRep is a measurement and record-keeping tool. It does not
+              provide medical advice, prescribe peptides, or recommend doses.
+              Users should confirm their inputs and follow guidance from an
+              appropriately qualified healthcare professional.
             </p>
           </div>
         </div>
@@ -1410,8 +1621,17 @@ const FAQS = [
     a: "Yes. PepRep includes vial inventory, user-created schedules, logging, history, injection-site rotation, and progress records.",
   },
   {
+    q: "Is PepRep free?",
+    a: "Yes. The web app is free to use, and no account is required for calculation or local records.",
+  },
+  {
+    q: "Where is my information stored?",
+    a: "Your vials, plans and history stay on this device by default. Optional cloud backup uploads only a password-encrypted file you choose; it is not automatic sync.",
+    link: { href: "/privacy", label: "Read the privacy policy →" },
+  },
+  {
     q: "Can I use it in a browser?",
-    a: "Yes. The PepRep web app is available at the link below.",
+    a: "Yes. The PepRep web app is available now. Native iPhone and Android releases will be linked here after store approval.",
     link: { href: APP_URL, label: "Open the PepRep web app →" },
   },
 ];
@@ -1516,7 +1736,8 @@ function FinalCTA() {
             <span className="text-white/50">Know what you logged.</span>
           </h2>
           <p className="mt-8 max-w-[52ch] text-[16px] leading-[1.55] text-white/65 sm:text-[17px]">
-            Clear calculations and a complete record, without the protocol bloat.
+            Clear calculations and a complete record. Free to use, local-first,
+            and no account required for the core experience.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <a
@@ -1525,7 +1746,7 @@ function FinalCTA() {
               rel="noreferrer"
               className="inline-flex h-12 items-center rounded-xl bg-volt px-6 text-[14px] font-semibold text-carbon transition-transform hover:scale-[0.98]"
             >
-              Open PepRep <span className="ml-2">→</span>
+              Open the free web app <span className="ml-2">→</span>
             </a>
             <span
               className="text-[12px] text-white/60"
@@ -1541,6 +1762,7 @@ function FinalCTA() {
               src={editorialFigure}
               alt="Figure in low light, arms raised in a controlled stretch."
               className="h-full w-full object-cover grayscale opacity-70"
+              decoding="async"
               loading="lazy"
               style={{
                 WebkitMaskImage:
@@ -1574,11 +1796,34 @@ function Footer() {
             <BoldTally size={36} />
             <Wordmark size={24} />
           </div>
-          <nav aria-label="Footer" className="flex flex-wrap gap-x-8 gap-y-3 text-[13px] font-medium">
-            <a href="#product" className="text-fg hover:text-carbon">Product</a>
-            <a href="#safety" className="text-fg hover:text-carbon">Safety</a>
-            <a href="#faq" className="text-fg hover:text-carbon">FAQ</a>
-            <a href={APP_URL} target="_blank" rel="noreferrer" className="text-fg hover:text-carbon">
+          <nav
+            aria-label="Footer"
+            className="flex flex-wrap gap-x-8 gap-y-3 text-[13px] font-medium"
+          >
+            <a href="#product" className="text-fg hover:text-carbon">
+              Product
+            </a>
+            <a href="#safety" className="text-fg hover:text-carbon">
+              Safety
+            </a>
+            <a href="#faq" className="text-fg hover:text-carbon">
+              FAQ
+            </a>
+            <a href="/privacy" className="text-fg hover:text-carbon">
+              Privacy
+            </a>
+            <a href="/terms" className="text-fg hover:text-carbon">
+              Terms
+            </a>
+            <a href="/contact" className="text-fg hover:text-carbon">
+              Support
+            </a>
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="text-fg hover:text-carbon"
+            >
               Open PepRep ↗
             </a>
           </nav>
