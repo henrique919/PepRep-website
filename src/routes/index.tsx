@@ -435,7 +435,7 @@ function Field({
     <div>
       <div className="flex items-baseline justify-between">
         <span className="text-[12px] font-medium text-white/70">{label}</span>
-        <span className="text-[10px] text-white/40">{hint}</span>
+        <span className="text-[10px] text-white/60">{hint}</span>
       </div>
       <div className="mt-2 flex items-stretch overflow-hidden rounded-xl border border-white/10 bg-[#111114]">
         <div
@@ -609,7 +609,7 @@ function Hero() {
           backgroundSize: "80px 80px",
         }}
       />
-      <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
+      <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-20">
         <div className="lg:col-span-6 xl:col-span-6">
           <div
             className="text-[11px] font-semibold uppercase tracking-[0.22em] text-volt"
@@ -618,7 +618,7 @@ function Hero() {
             Calculate · Track · Repeat
           </div>
           <h1
-            className="mt-6 text-[clamp(40px,7vw,88px)] font-bold leading-[0.98] tracking-[-0.035em]"
+            className="mt-6 text-[clamp(40px,6vw,76px)] font-bold leading-[0.98] tracking-[-0.035em]"
             style={{ fontFamily: "var(--font-d)" }}
           >
             From vial to draw.
@@ -649,7 +649,7 @@ function Hero() {
             </a>
           </div>
           <div
-            className="mt-6 flex max-w-[62ch] flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.12em] text-white/58"
+            className="mt-6 flex max-w-[62ch] flex-wrap gap-x-5 gap-y-2 text-[11px] uppercase tracking-[0.12em] text-white/60"
             style={{ fontFamily: "var(--font-m)" }}
           >
             <span>Free to use</span>
@@ -1136,7 +1136,7 @@ function ProductProof() {
               </div>
             </div>
             <div
-              className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/40"
+              className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/60"
               style={{ fontFamily: "var(--font-m)" }}
             >
               <span>Ref · PR-0724</span>
@@ -1160,7 +1160,7 @@ function ProductProof() {
                     </span>
                   </div>
                   <span
-                    className="text-[9px] text-white/40"
+                    className="text-[9px] text-white/60"
                     style={{ fontFamily: "var(--font-m)" }}
                   >
                     Today · Thu
@@ -1215,7 +1215,7 @@ function ProductProof() {
                             {i.n}
                           </div>
                           <div
-                            className="text-[9px] text-white/45 tabular-nums"
+                            className="text-[9px] text-white/60 tabular-nums"
                             style={{ fontFamily: "var(--font-m)" }}
                           >
                             {i.d}
@@ -1248,7 +1248,7 @@ function ProductProof() {
                     <div
                       key={t}
                       className={`text-[9px] font-semibold uppercase tracking-[0.14em] ${
-                        i === 2 ? "text-volt" : "text-white/40"
+                        i === 2 ? "text-volt" : "text-white/60"
                       }`}
                       style={{ fontFamily: "var(--font-m)" }}
                     >
@@ -1398,7 +1398,7 @@ function TodayList() {
             <div className="min-w-0 flex-1">
               <div className="text-[13px] font-medium text-white">{i.name}</div>
               <div
-                className="text-[11px] text-white/45 tabular-nums"
+                className="text-[11px] text-white/60 tabular-nums"
                 style={{ fontFamily: "var(--font-m)" }}
               >
                 {i.dose}
@@ -1417,7 +1417,7 @@ function StateChip({ state }: { state: string }) {
     done: { bg: "bg-volt", fg: "text-carbon", label: "Logged" },
     next: { bg: "bg-white", fg: "text-carbon", label: "Next" },
     queued: { bg: "bg-white/10", fg: "text-white/70", label: "Queued" },
-    skipped: { bg: "bg-white/5", fg: "text-white/40", label: "Skipped" },
+    skipped: { bg: "bg-white/5", fg: "text-white/60", label: "Skipped" },
   };
   const s = map[state];
   return (
@@ -1749,7 +1749,7 @@ function FinalCTA() {
               Open the free web app <span className="ml-2">→</span>
             </a>
             <span
-              className="text-[12px] text-white/45"
+              className="text-[12px] text-white/60"
               style={{ fontFamily: "var(--font-m)" }}
             >
               Calculate and track. Never prescribe.
