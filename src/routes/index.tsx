@@ -1578,6 +1578,8 @@ function Footer() {
             <a href="#product" className="text-fg hover:text-carbon">Product</a>
             <a href="#safety" className="text-fg hover:text-carbon">Safety</a>
             <a href="#faq" className="text-fg hover:text-carbon">FAQ</a>
+            <a href="/privacy" className="text-fg hover:text-carbon">Privacy</a>
+            <a href="/support" className="text-fg hover:text-carbon">Support</a>
             <a href={APP_URL} target="_blank" rel="noreferrer" className="text-fg hover:text-carbon">
               Open PepRep ↗
             </a>
